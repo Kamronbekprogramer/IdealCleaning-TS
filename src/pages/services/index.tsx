@@ -7,7 +7,7 @@ import useServiceStore from "../../store/service";
 import { Services } from "@modals";
 import { ToastContainer } from "react-toastify";
 const Index = () => {
-  const { getData, data, isLoading, deleteData, totalPages } = useServiceStore();
+  const { getData, data, isLoading, deleteData } = useServiceStore();
   const [modal, setModal] = useState(false);
   const [item, setItem] = useState({});
   const [params, setParams ] = useState({
@@ -38,9 +38,9 @@ const Index = () => {
     setItem({})
   }
 
-  const handleChange = (event, value) => {
-    setParams((prev) => ({ ...prev, page: value }));
-  };
+  // const handleChange = (event, value) => {
+  //   setParams((prev) => ({ ...prev, page: value }));
+  // };
 
   
   return (
@@ -78,7 +78,7 @@ const Index = () => {
       </div>
       <GlobalTable headers={headers} body={data} isLoading={isLoading} deleteItem={deleteData} editItem={editItem}/>
       <Stack spacing={2}>
-        <Pagination count={totalPages} page={params.page} onChange={handleChange} />
+        {/* <Pagination count={} page={params.page} onChange={handleChange} /> */}
       </Stack>
     </>
   );
